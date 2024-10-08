@@ -1,0 +1,32 @@
+{% sw_extends '@Storefront/storefront/component/line-item/type/product.html.twig' %}
+
+{% block component_line_item_type_product_label %}
+  {{ parent() }}
+
+  {% if lineItem.payload and lineItem.payload._printessSaveToken %}
+    <script data-printess-product-info-added="false">
+      if(!window["printessGetInfo"]) {
+        window["printessGetInfo"] = function() {
+          const lineItems = {};
+          {% for lineItemId, infos in page.extensions.printess_product_infos %}
+            lineItems[{{ lineItemId | json_encode | raw }}] = JSON.parse({{ infos.content | json_encode | raw }});
+          {% endfor %}
+
+          return lineItems;
+        };
+      }
+    </script>
+
+    <div data-printess-line-item-id="{{lineItem.id | raw}}" data-printess-line-item-product-id="{{lineItem.referencedId | raw}}" data-printess-line-item="{{ lineItem | json_encode }}" style="cursor: pointer;" data-printess-product-infos="{{ page.extensions.printess_product_infos | json_encode }}">
+      <span class="label">{{ 'frontend.edit'|trans|striptags }}</span>
+    </div>
+    <form action="/checkout/line-item/update" method="post" data-form-submit-loader="true" id="printessupdateLineItem{{lineItem.id}}" data-form-submit-loader-options="{&quot;skipLoadingIndicator&quot;:true}" class="">
+      <input type="hidden" name="redirectTo" value="frontend.checkout.cart.page">
+      <input type="hidden" name="redirectParameters" value="">
+      <input type="hidden" name="lineItems[0][id]" value="">
+      <input type="hidden" name="lineItems[0][quantity]" value="">
+      <input type="hidden" name="lineItems[0][referencedId]" value="">
+      <input type="hidden" name="lineItems[0][payload]" value="">
+      </form>
+  {% endif %}
+{% endblock %}

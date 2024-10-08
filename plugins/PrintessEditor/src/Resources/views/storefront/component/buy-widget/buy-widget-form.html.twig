@@ -1,0 +1,22 @@
+{% sw_extends '@Storefront/storefront/component/buy-widget/buy-widget-form.html.twig' %}
+
+{% block buy_widget_buy_button_container %}
+    {{ parent() }}
+
+    <script id="printess_script{{product.id}}">
+        function getPrintessInfo{{product.id}}() {
+            let printessInfo = null;
+
+            {% if page.extensions.printess_product_info %}
+                printessInfo = {{ page.extensions.printess_product_info.content | raw }}
+            {% endif %}
+
+            return printessInfo;
+        }
+    </script>
+
+    <span data-printess-button data-product-id="{{ product.id }}" class="btn btn-primary" style="display:none">{{ 'frontend.editDesign'|trans|striptags }}</span>
+{% endblock %}
+
+
+ 

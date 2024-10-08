@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/component/line-item/element/image.html.twig' %}
+
+{% block component_line_item_image_thumbnails %}
+    {% if lineItem.payload and lineItem.payload._printessThumbnailUrl %}
+        <img src="{{lineItem.payload._printessThumbnailUrl | raw}}" width="85">
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

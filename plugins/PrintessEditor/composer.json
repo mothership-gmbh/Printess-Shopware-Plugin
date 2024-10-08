@@ -1,0 +1,35 @@
+{
+    "name": "printess-editor/printess-editor",
+    "description": "printess-editor/printess-editor",
+    "authors": [
+        {
+            "name": "Printess GmbH & Co. Kg"
+        },
+        {
+            "name": "Alexander Oser"
+        }
+    ],
+    "type": "shopware-platform-plugin",
+    "version": "1.0.1",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "extra": {
+        "shopware-plugin-class": "PrintessEditor\\PrintessEditor",
+        "label": {
+            "de-DE": "Printess Editor",
+            "en-GB": "Printess Editor"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "PrintessEditor\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrintessEditor\\Tests\\": "tests/"
+        }
+    }
+}

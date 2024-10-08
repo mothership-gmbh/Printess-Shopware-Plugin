@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Printess Editor</title>
+        <input-field type="text">
+            <name>ShopToken</name>
+            <label>Shop token</label>
+        </input-field>
+        <input-field type="text">
+            <name>ServiceToken</name>
+            <label>Service token</label>
+        </input-field>
+        <input-field type="text">
+            <name>EditorHost</name>
+            <label>Editor host name</label>
+            <defaultValue>editor.printess.com</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>ApiHost</name>
+            <label>Api host name</label>
+            <defaultValue>api.printess.com</defaultValue>
+        </input-field>
+
+        <input-field type="text">
+            <name>StartupLogoUrl</name>
+            <label>Startup logo URL</label>
+            <defaultValue></defaultValue>
+        </input-field>
+
+        <input-field type="checkbox">
+            <name>ShowStartupAnimation</name>
+            <label>Show startup star animation</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>Theme</name>
+            <label>Theme</label>
+            <defaultValue></defaultValue>
+        </input-field>
+        <input-field type="checkbox">
+            <name>ShowPricesInEditor</name>
+            <label>Show prices in editor</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>LegalGrossPriceInfo</name>
+            <label>Legal gross price info</label>
+            <defaultValue>excl. taxes</defaultValue>
+        </input-field>
+        <input-field type="text">
+            <name>LegalNetPriceInfo</name>
+            <label>Legal net price info</label>
+            <defaultValue>incl. taxes</defaultValue>
+        </input-field>
+        <input-field type="checkbox">
+            <name>ShowProductNameInEditor</name>
+            <label>Show product name in editor</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config> 

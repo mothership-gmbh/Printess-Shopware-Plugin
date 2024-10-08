@@ -1,0 +1,17 @@
+{
+    "PrintessEditor": {
+        "adminOrder": {
+            "personalizedItems": "Personalisierte Produkte",
+            "saveToken": "Save token: ",
+            "printStatus": "Print status:",
+            "loadingPrintStatus": "Loading status..."
+        },
+        "frontend": {
+            "editDesign": "Edit Design"
+        },
+        "general": {
+            "mainMenuItemGeneral": "My custom module",
+            "descriptionTextModule": "Manage this custom module here"
+        }
+    }
+}
