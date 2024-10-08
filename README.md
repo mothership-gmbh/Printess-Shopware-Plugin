@@ -1,2 +1,4 @@
 # Shopware-Plugin
-The Printess Shopware editor integration
+The Printess Editor integration for Shopware
+
+See https://www.printess.com/kb.html#integrations/shopware.html
