@@ -307,7 +307,15 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
                     $vdpData["form"]["customerLastName"] = $convertedCart["orderCustomer"]["lastName"];
                     $vdpData["form"]["customerName"] = $convertedCart["orderCustomer"]["firstName"] . " " . $convertedCart["orderCustomer"]["lastName"];
 
-                    $customer = $this->getCustomerById($context, $convertedCart["orderCustomer"]["customerId"]);
+
+                    if(array_key_exists("customerId", $convertedCart["orderCustomer"]))
+                    {
+                        $customer = $this->getCustomerById($context, $convertedCart["orderCustomer"]["customerId"]);
+                    }
+                    else
+                    {
+                        $customer = $this->getCustomerById($context, $convertedCart["orderCustomer"]["customer"]["id"]);
+                    }
 
                     $addresses = $customer->getAddresses();
 
