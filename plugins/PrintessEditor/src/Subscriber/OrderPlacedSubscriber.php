@@ -237,7 +237,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         return $result;
     }
 
-    function produceItems($context, &$items, $order, $shopUrl, $dropshipId, $convertedCart)
+    private function produceItems($context, &$items, $order, $shopUrl, $dropshipId, $convertedCart)
     {
         $result = [];
         $errors = [];
@@ -395,7 +395,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         return $result;
     }
 
-    function addAddressToArray(array &$array, array $address, string $prefix, $context)
+    private function addAddressToArray(array &$array, array $address, string $prefix, $context)
     {
         $array[$prefix . "CompanyName"] = $this->getAddressValue($address, "company");
         $array[$prefix . "DepartmentName"] = $this->getAddressValue($address, "department");
@@ -425,7 +425,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         }
     }
 
-    function getDeliveryForOrderLineItem(array $convertedCart, string $lineItemId)
+    private function getDeliveryForOrderLineItem(array $convertedCart, string $lineItemId)
     {
         if(array_key_exists("deliveries", $convertedCart) && $convertedCart["deliveries"] !== null)
         {
@@ -452,7 +452,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         return null;
     }
 
-    function getDropshipLineItemsByDeliveries($context,  array &$convertedCart)
+    private function getDropshipLineItemsByDeliveries($context,  array &$convertedCart)
     {
         $ret = array();
         
@@ -490,7 +490,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         return $ret;
     }
 
-    function convertLineItemToArray($context, $lineItem) {
+    private function convertLineItemToArray($context, $lineItem) {
         $printessItem = array();
 
         $product = $this->getProductById($lineItem["productId"], $context);
@@ -518,7 +518,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         return $printessItem;
     }
 
-    function convertLineItemArray($context, array &$lineItems)
+    private function convertLineItemArray($context, array &$lineItems)
     {
         $ret = array();
 
@@ -530,6 +530,3 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         return $ret;
     }
 }
-
-?>
-

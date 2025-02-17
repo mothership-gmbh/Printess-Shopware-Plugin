@@ -13,5 +13,3 @@ abstract class AbstractPrintessProductInfoRoute
 
     abstract public function load($productId, Context $context): PrintessProductInfoResponse;
 }
-
-?>

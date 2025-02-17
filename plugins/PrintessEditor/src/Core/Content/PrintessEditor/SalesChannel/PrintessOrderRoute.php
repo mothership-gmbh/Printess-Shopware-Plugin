@@ -10,12 +10,6 @@ use Symfony\Component\Routing\Attribute\Route;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\HttpFoundation\Request;
-// use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-// use Shopware\Core\System\SalesChannel\SalesChannelContext;
-// use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-// use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
-// use PrintessEditor\Core\Content\PrintessEditor\SalesChannel\AbstractPrintessOrderRoute;
-// use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(defaults: ['_routeScope' => ['api']])]
 class PrintessOrderRoute extends AbstractPrintessOrderRoute
@@ -42,4 +36,3 @@ class PrintessOrderRoute extends AbstractPrintessOrderRoute
     return new JsonResponse(["abc" => "test"]);
   }
 }
-?>

@@ -28,7 +28,7 @@ class CustomFieldsInstaller
                     'de-DE' => 'Printess Produkt Einstellungen',
                     'en-GB' => 'Printess product settings',
                 ],
-                'position' => 0
+                'customFieldPosition' => 0
             ],
             'customFields' => [
                 [
@@ -44,7 +44,7 @@ class CustomFieldsInstaller
                             'de-DE' => 'Der Name ihres Printess Templates',
                             'en-GB' => 'The name of your printess template',
                         ],
-                        'position' => 1
+                        'customFieldPosition' => 1
                     ]
                 ],
                 [
@@ -54,13 +54,13 @@ class CustomFieldsInstaller
                     'config' => [
                         'label' => [
                             'de-DE' => 'Dropship Produktdefinitions Id',
-                            'en-GB' => 'Dropship product definition id',
+                            'en-GB' => 'Dropship product definition id'
                         ],
                         'helpText' => [
                             'de-DE' => 'Die Id der zu verwendenden Drophsip- Produktdefinition (-1: Templatesetting benutzen; 0: Kein Dropshipping verwenden)',
-                            'en-GB' => 'The dropship product definition id that should be used (-1: Use the template setting; 0: Do not use dropshipping)',
+                            'en-GB' => 'The dropship product definition id that should be used (-1: Use the template setting; 0: Do not use dropshipping)'
                         ],
-                        'position' => 2
+                        'customFieldPosition' => 2
                     ]
                 ],
                 [
@@ -70,13 +70,13 @@ class CustomFieldsInstaller
                     'config' => [
                         'label' => [
                             'de-DE' => 'Merge- Templates',
-                            'en-GB' => 'Merge templates',
+                            'en-GB' => 'Merge templates'
                         ],
                         'helpText' => [
                             'de-DE' => 'Name des zu mergenden Templates / Json configuritation für ein oder mehr templates.',
-                            'en-GB' => 'Name of the template that should be merged / Json configuration for one or more templates.',
+                            'en-GB' => 'Name of the template that should be merged / Json configuration for one or more templates.'
                         ],
-                        'position' => 3
+                        'customFieldPosition' => 3
                     ]
                 ],
                 [
@@ -86,13 +86,13 @@ class CustomFieldsInstaller
                     'config' => [
                         'label' => [
                             'de-DE' => 'Ausgabe Dateiformat',
-                            'en-GB' => 'Output file format',
+                            'en-GB' => 'Output file format'
                         ],
                         'helpText' => [
                             'de-DE' => 'Das Ausgabe Deitformat: PDF (Standard); PNG; TIFF; JPG',
-                            'en-GB' => 'Output file format: PDF (default); PNG; TIFF; JPG',
+                            'en-GB' => 'Output file format: PDF (default); PNG; TIFF; JPG'
                         ],
-                        'position' => 4
+                        'customFieldPosition' => 4
                     ]
                 ],
                 [
@@ -102,13 +102,13 @@ class CustomFieldsInstaller
                     'config' => [
                         'label' => [
                             'de-DE' => 'Ausgabe Auflösung',
-                            'en-GB' => 'Output resolution',
+                            'en-GB' => 'Output resolution'
                         ],
                         'helpText' => [
                             'de-DE' => 'Ausgabe Auflösung (Standard 300 DPI)',
-                            'en-GB' => 'Output resolution (default 300 DPI)',
+                            'en-GB' => 'Output resolution (default 300 DPI)'
                         ],
-                        'position' => 5
+                        'customFieldPosition' => 5
                     ]
                 ],
                 [
@@ -118,13 +118,13 @@ class CustomFieldsInstaller
                     'config' => [
                         'label' => [
                             'de-DE' => 'JPG Kompression',
-                            'en-GB' => 'JPG compression',
+                            'en-GB' => 'JPG compression'
                         ],
                         'helpText' => [
                             'de-DE' => 'Ausgabe JPEG Compression',
-                            'en-GB' => 'Output jpeg compression',
+                            'en-GB' => 'Output jpeg compression'
                         ],
-                        'position' => 6
+                        'customFieldPosition' => 6
                     ]
                 ],
                 [
@@ -134,15 +134,51 @@ class CustomFieldsInstaller
                     'config' => [
                         'label' => [
                             'de-DE' => 'Formfeld Zuweisungen',
-                            'en-GB' => 'Formfield mappings',
+                            'en-GB' => 'Formfield mappings'
                         ],
                         'helpText' => [
                             'de-DE' => 'Json Konfiguration für die Formfeld zuweisungen zwischen Shopware und Printess.',
-                            'en-GB' => 'Json configuration for the form field mappings between Shopware and Printess.',
+                            'en-GB' => 'Json configuration for the form field mappings between Shopware and Printess.'
                         ],
-                        'position' => 7
+                        'customFieldPosition' => 7
+                    ]
+                ],
+                [
+                    'name' => self::CUSTOM_FIELDSET_NAME . "UIVersion",
+                    'id' => Uuid::fromStringToHex("a65646bf0ec4468c8e0b9ef52b317839"),
+                    'type' => CustomFieldTypes::SELECT,
+                    'componentName' => 'sw-single-select',
+                    'config' => [
+                        'componentName' => 'sw-single-select',
+                        'label' => [
+                            'de-DE' => 'Benutzeroberflächenversion',
+                            'en-GB' => 'Userinterface Version'
+                        ],
+                        'helpText' => [
+                            'de-DE' => 'Wähle Klassich für die alte Benutzeroberfläche. Wähle Panel für die neue Version.',
+                            'en-GB' => 'Choose Classic UI for the (old) legacy UI. Choose Panel UI for the new Panel UI.'
+                        ],
+                        'options' =>
+                        [
+                            [
+                                'label' => [
+                                    'en-GB' => 'Classic UI',
+                                    'de-DE' => 'Klassisch'
+                                ],
+                                'value' => 'classic'
+                            ],
+                            [
+                                'label' => [
+                                    'en-GB' => 'Panel UI',
+                                    'de-DE' => 'Panel',
+                                ],
+                                'value' => 'panel'
+                            ]
+                        ],
+                        'customFieldPosition' => 8
                     ]
                 ]
+
             ]
         ];
     }
@@ -160,13 +196,21 @@ class CustomFieldsInstaller
         ], $context);
     }
 
+    public function update(Context $context): void
+    {
+        $this->customFieldSetRepository->upsert([
+            $this->getCustomProductFields(CustomFieldsInstaller::GetCustomProductFieldSetId())
+        ], $context);
+    }
+
     public function addRelations(Context $context): void
     {
-        $this->customFieldSetRelationRepository->upsert(array_map(function (string $customFieldSetId) {
-            return [
-                'customFieldSetId' => $customFieldSetId,
-                'entityName' => 'product',
-            ];
+         $this->customFieldSetRelationRepository->upsert(array_map(function (string $customFieldSetId) {
+             return [
+                 'customFieldSetId' => $customFieldSetId,
+                 'entityName' => 'product',
+                 'id' => Uuid::fromStringToHex("7dd240e628084f3cb5dfab30b69abc4e"),
+             ];
         }, $this->getCustomFieldSetIds($context)), $context);
     }
 

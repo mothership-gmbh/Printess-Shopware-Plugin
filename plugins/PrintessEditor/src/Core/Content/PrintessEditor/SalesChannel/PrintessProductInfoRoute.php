@@ -20,7 +20,7 @@ class PrintessProductInfoRoute extends AbstractPrintessProductInfoRoute
 {
     protected EntityRepository $productRepository;
     protected EntityRepository $currencyRepository;
-    protected SystemConfigService $systemConfiguration;
+    protected SystemConfigService $systemConfigService;
 
     public function __construct(EntityRepository $productRepository, EntityRepository $currencyRepository, SystemConfigService $systemConfigService)
     {
@@ -178,23 +178,16 @@ class PrintessProductInfoRoute extends AbstractPrintessProductInfoRoute
         }
       };
 
-      /*
+      $uiVersion = "classic";
 
-export interface IEditorSettings {
-    uiSettings?: IUISettings;
-    shopToken?: string;
-    editorUrl?: string;
-    editorVersion?: string;
-    showAlertOnTabClose?: boolean;
-    attachParams?: Record<string, any>;
-}
-
-hidePricesInEditor?: boolean;
-    priceFormat?: IPriceFormat;
-      */
+      if(array_key_exists("metaData", $product) && array_key_exists("PrintessUIVersion", $product["metaData"])) {
+        if($product["metaData"]["PrintessUIVersion"] != null && !empty($product["metaData"]["PrintessUIVersion"]) && strtolower($product["metaData"]["PrintessUIVersion"]) === "panel") {
+          $uiVersion = "bcui";
+        }
+      }
 
       $settings["uiSettings"] = array(
-        "uiVersion" => "classic",
+        "uiVersion" => $uiVersion,
         "startupLogoUrl" => $getStringValue($this->systemConfigService->get('PrintessEditor.config.StartupLogoUrl', null)),
         "showStartupAnimation" => $getBoolValue($this->systemConfigService->get('PrintessEditor.config.ShowStartupAnimation', null), true),
         "startupBackgroundColor" => "#000000",
@@ -272,4 +265,3 @@ class PrintessProductInfoResponse extends StoreApiResponse
         return $this->object;
     }
 }
-?>

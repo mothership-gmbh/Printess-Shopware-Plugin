@@ -78,6 +78,3 @@ class ProductViewSubscriber implements EventSubscriberInterface
         $pEvent->getPage()->addExtension('printess_product_infos', $struct);
     }
 }
-
-?>
-

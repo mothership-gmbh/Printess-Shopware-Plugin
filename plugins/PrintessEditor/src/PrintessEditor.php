@@ -46,7 +46,7 @@ class PrintessEditor extends Plugin
 
     public function update(UpdateContext $updateContext): void
     {
-        // Update necessary stuff, mostly non-database related
+        $this->getCustomFieldsInstaller()->update($updateContext->getContext());
     }
 
     public function postInstall(InstallContext $installContext): void

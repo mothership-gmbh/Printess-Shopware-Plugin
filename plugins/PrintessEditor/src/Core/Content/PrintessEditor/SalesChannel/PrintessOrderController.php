@@ -105,7 +105,3 @@ class PrintessOrderController extends AbstractController
     return $result;
   }
 }
-
-
-
-?>
