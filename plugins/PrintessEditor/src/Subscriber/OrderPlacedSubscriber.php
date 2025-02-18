@@ -216,7 +216,7 @@ class OrderPlacedSubscriber implements EventSubscriberInterface
         curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true);
         curl_setopt( $ch, CURLOPT_FAILONERROR, true);
 
-        if(str_contains($url, ":localhost") || str_contains($url, ":127.0.0.1") || str_contains($url, ":printesss")) {
+        if(str_contains($url, "://localhost") || str_contains($url, "://127.0.0.1")) {
             curl_setopt( $ch, CURLINFO_HEADER_OUT, true);
             curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);   
