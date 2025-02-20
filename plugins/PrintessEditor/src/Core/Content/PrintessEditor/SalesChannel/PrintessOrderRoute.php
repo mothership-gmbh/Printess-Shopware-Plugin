@@ -10,6 +10,8 @@ use Symfony\Component\Routing\Attribute\Route;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Symfony\Component\HttpFoundation\Request;
+use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route(defaults: ['_routeScope' => ['api']])]
 class PrintessOrderRoute extends AbstractPrintessOrderRoute
